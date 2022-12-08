@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/hint_iV2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="false"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/background_pict" />
+
+        <ImageView
+            android:id="@+id/fromTemplate_IV"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="64dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baukastend_round" />
+
+        <ImageView
+            android:id="@+id/create_new_IV"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="64dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fromTemplate_IV"
+            app:srcCompat="@drawable/baukastend_qvadrat" />
+
+        <TextView
+            android:id="@+id/fromTemplate_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/fromTemplate"
+            android:textColor="#FFFFFF"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toBottomOf="@+id/fromTemplate_IV"
+            app:layout_constraintEnd_toEndOf="@+id/fromTemplate_IV"
+            app:layout_constraintStart_toStartOf="@+id/fromTemplate_IV"
+            app:layout_constraintTop_toTopOf="@+id/fromTemplate_IV" />
+
+        <TextView
+            android:id="@+id/create_new_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/create_new"
+            android:textColor="#FFFFFF"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toBottomOf="@+id/create_new_IV"
+            app:layout_constraintEnd_toEndOf="@+id/create_new_IV"
+            app:layout_constraintStart_toStartOf="@+id/create_new_IV"
+            app:layout_constraintTop_toTopOf="@+id/create_new_IV" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginTop="135dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/menu_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/menu"
+                android:textSize="32sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/profiledit_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/editProfile"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/profilIcon_IV"
+                app:layout_constraintStart_toEndOf="@+id/profilIcon_IV"
+                app:layout_constraintTop_toTopOf="@+id/profilIcon_IV" />
+
+            <TextView
+                android:id="@+id/settings_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/Settings"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/settingIcon_IV"
+                app:layout_constraintStart_toEndOf="@+id/settingIcon_IV"
+                app:layout_constraintTop_toTopOf="@+id/settingIcon_IV" />
+
+            <TextView
+                android:id="@+id/tutorial_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/Tutorial"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tutorialIcon_IV"
+                app:layout_constraintStart_toEndOf="@+id/tutorialIcon_IV"
+                app:layout_constraintTop_toTopOf="@+id/tutorialIcon_IV" />
+
+            <TextView
+                android:id="@+id/faq_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/faq"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/faqIcon_IV"
+                app:layout_constraintStart_toEndOf="@+id/faqIcon_IV"
+                app:layout_constraintTop_toTopOf="@+id/faqIcon_IV" />
+
+            <TextView
+                android:id="@+id/premium_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/Buy_premium"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/premiumIcon_IV"
+                app:layout_constraintStart_toEndOf="@+id/premiumIcon_IV"
+                app:layout_constraintTop_toTopOf="@+id/premiumIcon_IV" />
+
+            <TextView
+                android:id="@+id/customerEdit_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/custumermanagement"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/customer_IV"
+                app:layout_constraintStart_toEndOf="@+id/customer_IV"
+                app:layout_constraintTop_toTopOf="@+id/customer_IV" />
+
+            <TextView
+                android:id="@+id/calcEdit_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/CalculationEditor"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/calceditIcon_IV"
+                app:layout_constraintStart_toEndOf="@+id/calceditIcon_IV"
+                app:layout_constraintTop_toTopOf="@+id/calceditIcon_IV" />
+
+            <ImageView
+                android:id="@+id/profilIcon_IV"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="-96dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="@+id/menu_textView"
+                app:layout_constraintTop_toBottomOf="@+id/menu_textView"
+                app:srcCompat="@drawable/icon_profile" />
+
+            <ImageView
+                android:id="@+id/customer_IV"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/profilIcon_IV"
+                app:layout_constraintTop_toBottomOf="@+id/profilIcon_IV"
+                app:srcCompat="@drawable/icon_kundenverwaltung" />
+
+            <ImageView
+                android:id="@+id/calceditIcon_IV"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/profilIcon_IV"
+                app:layout_constraintTop_toBottomOf="@+id/customer_IV"
+                app:srcCompat="@drawable/icon_calceditor" />
+
+            <ImageView
+                android:id="@+id/settingIcon_IV"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/profilIcon_IV"
+                app:layout_constraintTop_toBottomOf="@+id/calceditIcon_IV"
+                app:srcCompat="@drawable/icon_settings" />
+
+            <ImageView
+                android:id="@+id/premiumIcon_IV"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/profilIcon_IV"
+                app:layout_constraintTop_toBottomOf="@+id/faqIcon_IV"
+                app:srcCompat="@drawable/icon_premium" />
+
+            <ImageView
+                android:id="@+id/faqIcon_IV"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/profilIcon_IV"
+                app:layout_constraintTop_toBottomOf="@+id/tutorialIcon_IV"
+                app:srcCompat="@drawable/icon_faq" />
+
+            <ImageView
+                android:id="@+id/tutorialIcon_IV"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="48dp"
+                app:layout_constraintStart_toStartOf="@+id/profilIcon_IV"
+                app:layout_constraintTop_toBottomOf="@+id/settingIcon_IV"
+                app:srcCompat="@drawable/icon_tutorial" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/btn_OK"
+            android:layout_width="124dp"
+            android:layout_height="124dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/btn_ok_standart" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

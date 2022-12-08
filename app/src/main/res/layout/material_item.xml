@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/materialDetailConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:animateLayoutChanges="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btn_minusMaterial"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/union" />
+
+        <ImageView
+            android:id="@+id/btn_saveMaterial"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/btn_minusMaterial"
+            app:layout_constraintStart_toStartOf="@+id/btn_minusMaterial"
+            app:layout_constraintTop_toBottomOf="@+id/btn_minusMaterial"
+            app:srcCompat="@drawable/ic_baseline_save_24" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="?android:attr/listDivider"
+            tools:layout_editor_absoluteY="272dp" />
+
+        <TextView
+            android:id="@+id/materialName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/materialName"
+            app:layout_constraintBottom_toBottomOf="@+id/LayotMaterialName"
+            app:layout_constraintEnd_toStartOf="@+id/LayotMaterialName"
+            app:layout_constraintTop_toTopOf="@+id/LayotMaterialName" />
+
+        <TextView
+            android:id="@+id/materialWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/materialWeight"
+            app:layout_constraintBottom_toBottomOf="@+id/LayotMaterialWeight"
+            app:layout_constraintEnd_toStartOf="@+id/LayotMaterialWeight"
+            app:layout_constraintTop_toTopOf="@+id/LayotMaterialWeight" />
+
+        <TextView
+            android:id="@+id/materialQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/materialQuantity"
+            app:layout_constraintBottom_toBottomOf="@+id/LayotMaterialQuantity"
+            app:layout_constraintEnd_toStartOf="@+id/LayotMaterialQuantity"
+            app:layout_constraintTop_toTopOf="@+id/LayotMaterialQuantity" />
+
+        <TextView
+            android:id="@+id/materialPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/materialPrice"
+            app:layout_constraintBottom_toBottomOf="@+id/LayotMaterialPrice"
+            app:layout_constraintEnd_toStartOf="@+id/LayotMaterialQuantity"
+            app:layout_constraintTop_toTopOf="@+id/LayotMaterialPrice" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/LayotMaterialQuantity"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/down_txt_box"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LayotMaterialWeight">
+
+            <EditText
+                android:id="@+id/materialQuantity_TI"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:imeOptions="actionDone"
+                android:inputType="textNoSuggestions"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/LayotMaterialPrice"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/down_txt_box"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LayotMaterialQuantity">
+
+            <EditText
+                android:id="@+id/materialPrice_TI"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:imeOptions="actionDone"
+                android:inputType="textNoSuggestions"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/LayotMaterialWeight"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/down_txt_box"
+            app:layout_constraintStart_toStartOf="@+id/LayotMaterialName"
+            app:layout_constraintTop_toBottomOf="@+id/LayotMaterialName">
+
+            <EditText
+                android:id="@+id/materialWeight_TI"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:imeOptions="actionDone"
+                android:inputType="textNoSuggestions"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/LayotMaterialName"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/down_txt_box"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/materialName_TI"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:imeOptions="actionDone"
+                android:inputType="textNoSuggestions"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

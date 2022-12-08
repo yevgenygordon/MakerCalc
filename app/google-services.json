@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "753569760298",
+    "project_id": "makercalc-62843",
+    "storage_bucket": "makercalc-62843.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753569760298:android:b142e469a5bd6fe5692f53",
+        "android_client_info": {
+          "package_name": "com.example.makercalc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753569760298-rg5ipirobfnqt4r3umga3tgjgam9dvq5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.makercalc",
+            "certificate_hash": "ec7d0089282d3110cace996b266dc4e206deebbe"
+          }
+        },
+        {
+          "client_id": "753569760298-kmjop56bfdgognu7js5pu17f7jpeldp1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrX1cuKk7PwQ7pVEXTMAIcowCCCr_FaYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "753569760298-kmjop56bfdgognu7js5pu17f7jpeldp1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

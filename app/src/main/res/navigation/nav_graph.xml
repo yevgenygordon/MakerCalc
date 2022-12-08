@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.makercalc.ui.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_sortbyFragment"
+            app:destination="@id/sortbyFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_constructionkitselectionFragment"
+            app:destination="@id/constructionkitselectionFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_firebasekitFragment"
+            app:destination="@id/firebasekitFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_constructionkitFragment"
+            app:destination="@id/constructionkitFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_listkitFragment"
+            app:destination="@id/listkitFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.makercalc.MainActivity"
+        android:label="MainActivity" />
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.makercalc.ui.authentication.StartFragment"
+        android:label="StartFragment" >
+        <action
+            android:id="@+id/action_startFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.makercalc.ui.authentication.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.example.makercalc.ui.authentication.SignupFragment"
+        android:label="SignupFragment" >
+        <action
+            android:id="@+id/action_signupFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.makercalc.ui.MenuFragment"
+        android:label="MenuFragment" >
+        <action
+            android:id="@+id/action_menuFragment_to_profilFragment"
+            app:destination="@id/profilFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_customermanagementFragment"
+            app:destination="@id/customermanagementFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profilFragment"
+        android:name="com.example.makercalc.ui.ProfilFragment"
+        android:label="ProfilFragment" />
+    <fragment
+        android:id="@+id/customermanagementFragment"
+        android:name="com.example.makercalc.ui.CustomermanagementFragment"
+        android:label="CustomermanagementFragment" />
+    <fragment
+        android:id="@+id/sortbyFragment"
+        android:name="com.example.makercalc.ui.SortbyFragment"
+        android:label="SortbyFragment" />
+    <fragment
+        android:id="@+id/constructionkitselectionFragment"
+        android:name="com.example.makercalc.ui.ConstructionkitselectionFragment"
+        android:label="ConstructionkitselectionFragment" >
+        <action
+            android:id="@+id/action_constructionkitselectionFragment_to_topicsFragment"
+            app:destination="@id/topicsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/topicsFragment"
+        android:name="com.example.makercalc.ui.TopicsFragment"
+        android:label="TopicsFragment" >
+        <action
+            android:id="@+id/action_topicsFragment_to_constructionkitFragment"
+            app:destination="@id/constructionkitFragment" />
+        <action
+            android:id="@+id/action_topicsFragment_to_listkitFragment"
+            app:destination="@id/listkitFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/constructionkitFragment"
+        android:name="com.example.makercalc.ui.ConstructionkitFragment"
+        android:label="ConstructionkitFragment" >
+        <action
+            android:id="@+id/action_constructionkitFragment_to_materialsFragment"
+            app:destination="@id/materialsFragment" />
+        <action
+            android:id="@+id/action_constructionkitFragment_to_devicesFragment"
+            app:destination="@id/devicesFragment" />
+        <argument
+            android:name="theme"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/materialsFragment"
+        android:name="com.example.makercalc.ui.MaterialsFragment"
+        android:label="MaterialsFragment" >
+        <action
+            android:id="@+id/action_materialsFragment_to_constructionkitFragment"
+            app:destination="@id/constructionkitFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/devicesFragment"
+        android:name="com.example.makercalc.ui.devicesFragment"
+        android:label="devicesFragment" >
+        <action
+            android:id="@+id/action_devicesFragment_to_constructionkitFragment"
+            app:destination="@id/constructionkitFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firebasekitFragment"
+        android:name="com.example.makercalc.ui.FirebasekitFragment"
+        android:label="FirebasekitFragment" />
+    <fragment
+        android:id="@+id/listkitFragment"
+        android:name="com.example.makercalc.ui.ListkitFragment"
+        android:label="ListkitFragment" >
+        <argument
+            android:name="theme"
+            app:argType="string" />
+    </fragment>
+</navigation>

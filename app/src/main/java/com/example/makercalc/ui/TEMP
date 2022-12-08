@@ -1,0 +1,175 @@
+
+
+    // Neuer SingleCalc in die Firestore Datenbank gespeichert
+    fun setSingleCalc (updateSingleCalc: SingleCalc){
+
+
+ /*       val newSingleCalc = hashMapOf(
+
+            "singleCalcName" to newSingleCalc.singleCalcName.toString(),
+            "singleCalcDescription" to newSingleCalc.singleCalcDescription.toString(),
+            "image" to _image,
+
+            "prototype" to newSingleCalc.prototype,
+            "difficultyFactor" to newSingleCalc.difficultyFactor,
+            "quantity" to newSingleCalc.quantity,
+
+            "workTime" to newSingleCalc.workTime,  // Std
+            "workPriceHour" to newSingleCalc.workPriceHour,
+            "workExtraPrice" to newSingleCalc.workExtraPrice,
+            "postProcessingPrice" to newSingleCalc.postProcessingPrice,
+            "modelingCost" to newSingleCalc.modelingCost,
+            "electricityPrice" to newSingleCalc.electricityPrice,  //($/1000 Watt)
+            "isTemplate" to 0,
+            "isFavorite" to 0,
+            "themeID" to newSingleCalc.themeID,
+            )
+
+  */
+
+        nullCalc.value?.let {
+            db.collection("User").document(currentUser.value!!.uid)
+                .collection("SingleCalc").document(it.singleCalcID)
+                .update(
+
+                    "singleCalcName",
+                    updateSingleCalc.singleCalcName,
+                    "singleCalcDescription",
+                    updateSingleCalc.singleCalcDescription,
+                    "image",
+                    updateSingleCalc.image,
+                    "prototype",
+                    updateSingleCalc.prototype,
+                    "difficultyFactor",
+                    updateSingleCalc.difficultyFactor,
+                    "quantity",
+                    updateSingleCalc.quantity,
+                    "workTime",
+                    updateSingleCalc.workTime,
+                    "workPriceHour",
+                    updateSingleCalc.workPriceHour,
+                    "workExtraPrice",
+                    updateSingleCalc.workExtraPrice,
+                    "postProcessingPrice",
+                    updateSingleCalc.postProcessingPrice,
+                    "modelingCost",
+                    updateSingleCalc.modelingCost,
+                    "electricityPrice",
+                    updateSingleCalc.electricityPrice,
+                    "isTemplate",
+                    updateSingleCalc.isTemplate,
+                    "isFavorite",
+                    updateSingleCalc.isFavorite,
+                    "isFavorite",
+                    updateSingleCalc.isFavorite)
+                .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!")
+                    getCalcs()
+                }
+                .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+        }
+    }
+
+
+
+
+
+     // Neuer ListenCalc in die Firestore Datenbank gespeichert
+        fun setListenCalc (newListenCalc:ListenCalc){
+
+            val newListenCalc = hashMapOf(
+
+                "listenCalcName" to newListenCalc.listenCalcName,
+
+                "listenCalcDescription" to newListenCalc.listenCalcDescription,
+
+                "listenCalcDescription" to newListenCalc.listenCalcName,
+
+
+            )
+
+            db.collection("User").document(currentUser.value!!.uid)
+                .collection("SingleCalc").document()
+                .set(newListenCalc)
+                .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!")
+                    getCalcs()
+                }
+                .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+
+
+        }
+
+
+
+
+    // Neuer TempCalc from FirebasekitFragment zu Firebase hinzufügen
+    fun setTemplateCalc (newSingleCalc: SingleCalc){
+
+        var  documentID: String = newSingleCalc.singleCalcName
+        val newSingleCalc = hashMapOf(
+
+            "singleCalcName" to newSingleCalc.singleCalcName.toString(),
+            "singleCalcDescription" to newSingleCalc.singleCalcDescription.toString(),
+
+            "prototype" to newSingleCalc.prototype,
+            "difficultyFactor" to newSingleCalc.difficultyFactor,
+            "quantity" to newSingleCalc.quantity,
+
+            "workTime" to newSingleCalc.workTime,  // Std
+            "workPriceHour" to newSingleCalc.workPriceHour,
+            "workExtraPrice" to newSingleCalc.workExtraPrice,
+            "postProcessingPrice" to newSingleCalc.postProcessingPrice,
+            "modelingCost" to newSingleCalc.modelingCost,
+            "electricityPrice" to newSingleCalc.electricityPrice,  //($/1000 Watt)
+            "isTemplate" to false,
+            "isFavorite" to false,
+            "themeID" to newSingleCalc.themeID,
+        )
+
+
+        db.collection("SingleCalc").document(documentID)
+            .set(newSingleCalc)
+            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!")
+                getCalcs()
+            }
+            .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+
+
+        val inputMaterials = _tempmaterials.value
+
+        if (inputMaterials != null) {
+            db.collection("SingleCalc").document(documentID)
+                .collection("Materials").document()
+                .set(inputMaterials)
+        }
+
+        val inputDevices = _tempdevices.value
+
+        if (inputDevices != null) {
+            db.collection("SingleCalc").document(documentID)
+                .collection("Devices").document()
+                .set(inputDevices)
+        }
+
+    }
+
+
+
+
+    ----------------------------------------
+
+
+        var materialsCost: Double = 0.0
+                    for (i in 0 .. calcViewModel.materials.value!!.size-1){
+                        var  mCost = calcViewModel.materials.value!![i].materialweight *
+                                calcViewModel.materials.value!![i].materialQuantity.toDouble() *
+                                calcViewModel.materials.value!![i].materialPriceItem
+                        materialsCost += mCost
+                    }
+
+                    var deviceCost: Double = 0.0
+                    for (i in 0 .. calcViewModel.materials.value!!.size-1){
+                        var  dCost = calcViewModel.materials.value!![i].materialweight *
+                                calcViewModel.materials.value!![i].materialQuantity.toDouble() *
+                                calcViewModel.materials.value!![i].materialPriceItem
+                        materialsCost += dCost
+                    }

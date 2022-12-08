@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="false"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/background_pict" />
+
+        <ImageView
+            android:id="@+id/logo2screen_iV"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="84dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/mc_logo" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView6"
+            app:layout_constraintStart_toStartOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/signup_password_TI">
+
+            <Button
+                android:id="@+id/btn_Signup"
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:layout_width="160dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="32dp"
+                android:background="@drawable/button_box_up"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/reg_Button"
+                android:textAllCaps="true"
+                android:textColor="#575F6B"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/btn_Cancel"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_Cancel"
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:layout_width="160dp"
+                android:layout_height="36dp"
+                android:background="@drawable/button_box_up"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/Cancel"
+                android:textAllCaps="true"
+                android:textColor="#575F6B"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="260dp"
+            android:layout_height="48dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="@+id/signup_loginName_TI"
+            app:layout_constraintStart_toStartOf="@+id/signup_loginName_TI"
+            app:layout_constraintTop_toTopOf="@+id/signup_loginName_TI"
+            app:srcCompat="@drawable/down_txt_box" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="260dp"
+            android:layout_height="48dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="@+id/signup_loginName_TI"
+            app:layout_constraintStart_toStartOf="@+id/signup_loginName_TI"
+            app:layout_constraintTop_toTopOf="@+id/signup_password_TI"
+            app:srcCompat="@drawable/down_txt_box" />
+
+        <EditText
+            android:id="@+id/signup_loginName_TI"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="32dp"
+            android:hint="@string/loginName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
+            android:id="@+id/signup_password_TI"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:hint="@string/loginPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signup_loginName_TI" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/reg_Button"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="@+id/logo2screen_iV"
+            app:layout_constraintStart_toStartOf="@+id/logo2screen_iV"
+            app:layout_constraintTop_toBottomOf="@+id/logo2screen_iV" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

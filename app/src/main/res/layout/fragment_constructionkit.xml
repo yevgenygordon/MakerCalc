@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/calcDetailsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="148dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/kit_card1_View"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="16dp">
+
+                        <ImageView
+                            android:id="@+id/imageView0"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            app:srcCompat="@drawable/calc_card" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/theme_iV"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginStart="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/maintenance" />
+
+                            <EditText
+                                android:id="@+id/calcName_ET"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="254dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-medium"
+                                android:inputType="textNoSuggestions"
+                                android:text="3D Drucker Reparatur"
+                                android:textColor="#575F6B"
+                                android:textSize="20sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/theme_iV"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/favorite_iV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/favoritestar" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/calcDetailBotom"
+                            android:layout_width="match_parent"
+                            android:layout_height="900dp"
+                            android:layout_marginTop="64dp"
+                            android:animateLayoutChanges="false">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/LayoutWorkPreis"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="48dp"
+                                android:background="@drawable/down_txt_box"
+                                app:layout_constraintStart_toStartOf="@+id/workpreis"
+                                app:layout_constraintTop_toBottomOf="@+id/divider">
+
+                                <EditText
+                                    android:id="@+id/workPreis_TI"
+                                    android:layout_width="100dp"
+                                    android:layout_height="48dp"
+                                    android:background="@null"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:hint="199,99 €"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="textNoSuggestions"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:textAlignment="center"
+                                    android:textSize="20sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/LayoutWorktime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="48dp"
+                                android:background="@drawable/down_txt_box"
+                                app:layout_constraintStart_toStartOf="@+id/worktime"
+                                app:layout_constraintTop_toBottomOf="@+id/divider">
+
+                                <EditText
+                                    android:id="@+id/workTime_TI"
+                                    android:layout_width="100dp"
+                                    android:layout_height="48dp"
+                                    android:background="@null"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:hint="199,99 €"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="textNoSuggestions"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:textAlignment="center"
+                                    android:textSize="20sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/LayoutExtraPreis"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="32dp"
+                                android:background="@drawable/down_txt_box"
+                                app:layout_constraintStart_toEndOf="@+id/extraPreis"
+                                app:layout_constraintTop_toBottomOf="@+id/LayoutWorktime">
+
+                                <EditText
+                                    android:id="@+id/extraPreis_TI"
+                                    android:layout_width="100dp"
+                                    android:layout_height="48dp"
+                                    android:background="@null"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:hint="199,99 €"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="textNoSuggestions"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:textAlignment="center"
+                                    android:textSize="20sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/constraintLayout4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="32dp"
+                                android:layout_marginEnd="16dp"
+                                android:background="@drawable/down_txt_box"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/calcImage_EI">
+
+                                <EditText
+                                    android:id="@+id/calcText_TI"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginEnd="16dp"
+                                    android:background="@null"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:hint="@string/singleCalcText"
+                                    android:imeOptions="actionDone"
+                                    android:maxLines="12"
+                                    android:minLines="3"
+                                    android:textAlignment="viewStart"
+                                    android:textSize="16sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/LayoutElectricityPreis"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="32dp"
+                                android:background="@drawable/down_txt_box"
+                                app:layout_constraintStart_toEndOf="@+id/electricityPreis"
+                                app:layout_constraintTop_toBottomOf="@+id/LayoutModdelingCost">
+
+                                <EditText
+                                    android:id="@+id/electricityPreis_TI"
+                                    android:layout_width="100dp"
+                                    android:layout_height="48dp"
+                                    android:background="@null"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:hint="199,99 €"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="textNoSuggestions"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:textAlignment="center"
+                                    android:textSize="20sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/LayoutModdelingCost"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="48dp"
+                                android:background="@drawable/down_txt_box"
+                                app:layout_constraintStart_toStartOf="@+id/modelingpreis"
+                                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+                                <EditText
+                                    android:id="@+id/moddelingCost_TI"
+                                    android:layout_width="100dp"
+                                    android:layout_height="48dp"
+                                    android:background="@null"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:hint="199,99 €"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="textNoSuggestions"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:textAlignment="center"
+                                    android:textSize="20sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/LayoutPostProcessing"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/down_txt_box"
+                                app:layout_constraintBottom_toBottomOf="@+id/LayoutModdelingCost"
+                                app:layout_constraintStart_toStartOf="@+id/ppPreis"
+                                app:layout_constraintTop_toTopOf="@+id/LayoutModdelingCost">
+
+                                <EditText
+                                    android:id="@+id/postPrPreis_TI"
+                                    android:layout_width="100dp"
+                                    android:layout_height="48dp"
+                                    android:background="@null"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:hint="199,99 €"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="textNoSuggestions"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:textAlignment="center"
+                                    android:textSize="20sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/LayoutproduktDifficulty"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="48dp"
+                                android:background="@drawable/down_txt_box"
+                                app:layout_constraintBottom_toBottomOf="@+id/constraintLayout2"
+                                app:layout_constraintStart_toEndOf="@+id/constraintLayout2"
+                                app:layout_constraintTop_toTopOf="@+id/constraintLayout2">
+
+                                <EditText
+                                    android:id="@+id/produktDifficulty_TI"
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:background="@null"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:hint="1"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="textNoSuggestions"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:textAlignment="center"
+                                    android:textSize="20sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/constraintLayout2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="48dp"
+                                android:background="@drawable/down_txt_box"
+                                app:layout_constraintStart_toStartOf="@+id/produktQuantity"
+                                app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+
+                                <EditText
+                                    android:id="@+id/produktQuantity_TI"
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:background="@null"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:hint="1"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="textNoSuggestions"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:textAlignment="center"
+                                    android:textSize="20sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <TextView
+                                android:id="@+id/produktQuantity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:text="@string/produktQuantity"
+                                app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+                                app:layout_constraintStart_toStartOf="@+id/constraintLayout4" />
+
+                            <TextView
+                                android:id="@+id/modelingpreis"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:text="@string/modelingCost"
+                                app:layout_constraintBottom_toTopOf="@+id/LayoutModdelingCost"
+                                app:layout_constraintStart_toStartOf="@+id/produktQuantity" />
+
+                            <TextView
+                                android:id="@+id/worktime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:text="@string/workTime"
+                                app:layout_constraintBottom_toTopOf="@+id/LayoutWorktime"
+                                app:layout_constraintStart_toStartOf="@+id/divider" />
+
+                            <TextView
+                                android:id="@+id/workpreis"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="48dp"
+                                android:layout_marginBottom="4dp"
+                                android:text="@string/workPriceHour"
+                                app:layout_constraintBottom_toTopOf="@+id/LayoutWorktime"
+                                app:layout_constraintEnd_toEndOf="@+id/divider"
+                                app:layout_constraintStart_toEndOf="@+id/LayoutWorktime" />
+
+                            <TextView
+                                android:id="@+id/extraPreis"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="32dp"
+                                android:text="@string/workExtraPrice"
+                                app:layout_constraintBottom_toBottomOf="@+id/LayoutExtraPreis"
+                                app:layout_constraintStart_toStartOf="@+id/divider"
+                                app:layout_constraintTop_toTopOf="@+id/LayoutExtraPreis" />
+
+                            <TextView
+                                android:id="@+id/electricityPreis"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/electricityPrice"
+                                app:layout_constraintBottom_toBottomOf="@+id/LayoutElectricityPreis"
+                                app:layout_constraintStart_toStartOf="@+id/constraintLayout4"
+                                app:layout_constraintTop_toTopOf="@+id/LayoutElectricityPreis" />
+
+                            <TextView
+                                android:id="@+id/ppPreis"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="48dp"
+                                android:layout_marginBottom="4dp"
+                                android:text="@string/postProcessingPrice"
+                                app:layout_constraintBottom_toTopOf="@+id/LayoutModdelingCost"
+                                app:layout_constraintEnd_toEndOf="@+id/constraintLayout4"
+                                app:layout_constraintStart_toEndOf="@+id/modelingpreis" />
+
+                            <TextView
+                                android:id="@+id/produktQuantity2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:text="@string/difficultyFactor"
+                                app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+                                app:layout_constraintStart_toStartOf="@+id/LayoutproduktDifficulty" />
+
+                            <ImageView
+                                android:id="@+id/calcImage_EI"
+                                android:layout_width="269dp"
+                                android:layout_height="183dp"
+                                android:layout_marginStart="48dp"
+                                android:layout_marginTop="32dp"
+                                android:layout_marginEnd="48dp"
+                                android:adjustViewBounds="true"
+                                android:scaleType="center"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/_dreparatur" />
+
+                            <ImageView
+                                android:id="@+id/btn_insertCalcImage"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/calcImage_EI"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/calcImage_EI"
+                                app:srcCompat="@drawable/icon_plus" />
+
+                            <TextView
+                                android:id="@+id/textView2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="32dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="Kosten:"
+                                android:textColor="#575F6B"
+                                android:textSize="20sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/textView4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="Gewinn:"
+                                android:textColor="#575F6B"
+                                android:textSize="20sp"
+                                app:layout_constraintEnd_toStartOf="@+id/resultProfit_TV"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/resultCosts_TV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="108dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="#575F6B"
+                                android:textSize="20sp"
+                                app:layout_constraintBottom_toBottomOf="@+id/textView2"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:text="0,00 €" />
+
+                            <TextView
+                                android:id="@+id/resultProfit_TV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="32dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="#575F6B"
+                                android:textSize="20sp"
+                                app:layout_constraintBottom_toBottomOf="@+id/textView2"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:text="0,00 €" />
+
+                            <Switch
+                                android:id="@+id/prototypeSwitch_calckit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="32dp"
+                                android:text="@string/prototype"
+                                android:textColor="#575F6B"
+                                app:layout_constraintBottom_toBottomOf="@+id/LayoutproduktDifficulty"
+                                app:layout_constraintEnd_toEndOf="@+id/constraintLayout4"
+                                app:layout_constraintStart_toEndOf="@+id/LayoutproduktDifficulty"
+                                app:layout_constraintTop_toTopOf="@+id/LayoutproduktDifficulty" />
+
+                            <View
+                                android:id="@+id/divider"
+                                android:layout_width="280dp"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="32dp"
+                                android:background="?android:attr/listDivider"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/LayoutElectricityPreis" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/kit_card2_View"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="16dp">
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            app:srcCompat="@drawable/calc_card" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/block2Name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/materiaPrice_TV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="@string/materialCosts"
+                                android:textColor="#575F6B"
+                                android:textSize="24sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/btn_Plus_Material"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/materiaPrice_TV"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/materiaPrice_TV"
+                                app:srcCompat="@drawable/plusbutton_standart" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/kit_card3_View"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="16dp">
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            app:srcCompat="@drawable/calc_card" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/block3Name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/devicePrice_TV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="@string/deviceCosts"
+                                android:textColor="#575F6B"
+                                android:textSize="24sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/btn_Plus_Device"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/plusbutton_standart" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </ScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/btn_saveCalc"
+            android:layout_width="124dp"
+            android:layout_height="124dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/btn_ok_standart" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/queryField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-32dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_info" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="86dp"
+                android:layout_marginEnd="52dp"
+                android:animateLayoutChanges="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageView7">
+
+                <Button
+                    android:id="@+id/btn_queryDiscard"
+                    style="@style/Widget.Material3.Button.ElevatedButton"
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/button_box_up"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/discard"
+                    android:textAllCaps="true"
+                    android:textColor="#575F6B"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_querySave" />
+
+                <Button
+                    android:id="@+id/btn_queryCancel"
+                    style="@style/Widget.Material3.Button.ElevatedButton"
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/button_box_up"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/cancel"
+                    android:textAllCaps="true"
+                    android:textColor="#575F6B"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_queryDiscard" />
+
+                <Button
+                    android:id="@+id/btn_querySave"
+                    style="@style/Widget.Material3.Button.ElevatedButton"
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/button_box_up"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/save"
+                    android:textAllCaps="true"
+                    android:textColor="#575F6B"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/queryText_tV" />
+
+                <TextView
+                    android:id="@+id/queryText_tV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:lineSpacingExtra="-2dp"
+                    android:maxLines="2"
+                    android:minLines="1"
+                    android:text="@string/whatYouWant"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

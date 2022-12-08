@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="false"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/background_pict" />
+
+        <ImageView
+            android:id="@+id/logo2screen_iV"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="84dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/mc_logo" />
+
+        <TextView
+            android:id="@+id/orReg_TV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/or_Reg"
+            android:textAlignment="center"
+            android:textColor="#575F6B"
+            android:textSize="17dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_toSignUP"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_toSignUP"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="200dp"
+            android:layout_height="36dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/button_box_up"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/reg_Button"
+            android:textAllCaps="true"
+            android:textColor="#575F6B"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="260dp"
+            android:layout_height="48dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="@+id/login_loginName_TI"
+            app:layout_constraintStart_toStartOf="@+id/login_loginName_TI"
+            app:layout_constraintTop_toTopOf="@+id/login_loginName_TI"
+            app:srcCompat="@drawable/down_txt_box" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="260dp"
+            android:layout_height="48dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="@+id/login_loginName_TI"
+            app:layout_constraintStart_toStartOf="@+id/login_loginName_TI"
+            app:layout_constraintTop_toTopOf="@+id/login_password_TI"
+            app:srcCompat="@drawable/down_txt_box" />
+
+        <EditText
+            android:id="@+id/login_loginName_TI"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="32dp"
+            android:hint="@string/loginName"
+            android:inputType="textNoSuggestions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
+            android:id="@+id/login_password_TI"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:hint="@string/loginPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_loginName_TI" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/log_Button"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="@+id/logo2screen_iV"
+            app:layout_constraintStart_toStartOf="@+id/logo2screen_iV"
+            app:layout_constraintTop_toBottomOf="@+id/logo2screen_iV" />
+
+        <Button
+            android:id="@+id/btn_Login"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="120dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/button_box_up"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/log_Button"
+            android:textAllCaps="true"
+            android:textColor="#575F6B"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/login_password_TI"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+        <TextView
+            android:id="@+id/passForgot_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Password_forgotten"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView6"
+            tools:layout_editor_absoluteY="528dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

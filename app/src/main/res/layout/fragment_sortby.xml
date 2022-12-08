@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/btn_OK_sortby"
+            android:layout_width="124dp"
+            android:layout_height="124dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/btn_ok_standart" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginTop="135dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/sortby_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/sortby"
+                android:textSize="32sp"
+                app:layout_constraintStart_toStartOf="@+id/switch_Name"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/filter_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/filter"
+                android:textSize="32sp"
+                app:layout_constraintStart_toStartOf="@+id/switch_Name"
+                app:layout_constraintTop_toBottomOf="@+id/switch_Theme" />
+
+            <Switch
+                android:id="@+id/switch_Name"
+                android:layout_width="200dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="16dp"
+                android:checked="false"
+                android:fontFamily="sans-serif-medium"
+                android:text="Name"
+                android:textColor="#6C6C74"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sortby_textView" />
+
+            <Switch
+                android:id="@+id/switch_Favorit"
+                android:layout_width="200dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="16dp"
+                android:checked="false"
+                android:fontFamily="sans-serif-medium"
+                android:text="Favorit"
+                android:textColor="#6C6C74"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/filter_textView"
+                app:layout_constraintTop_toBottomOf="@+id/filter_textView" />
+
+            <Switch
+                android:id="@+id/switch_Draft"
+                android:layout_width="200dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:fontFamily="sans-serif-medium"
+                android:text="Entwurft"
+                android:textColor="#6C6C74"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/filter_textView"
+                app:layout_constraintTop_toBottomOf="@+id/switch_Accepted" />
+
+            <Switch
+                android:id="@+id/switch_Accepted"
+                android:layout_width="200dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:fontFamily="sans-serif-medium"
+                android:text="Akzeptiert"
+                android:textColor="#6C6C74"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/filter_textView"
+                app:layout_constraintTop_toBottomOf="@+id/switch_Favorit" />
+
+            <Switch
+                android:id="@+id/switch_Theme"
+                android:layout_width="200dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:fontFamily="sans-serif-medium"
+                android:text="Theme"
+                android:textColor="#6C6C74"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/switch_Name"
+                app:layout_constraintTop_toBottomOf="@+id/switch_Price" />
+
+            <Switch
+                android:id="@+id/switch_Price"
+                android:layout_width="200dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:fontFamily="sans-serif-medium"
+                android:text="Preis"
+                android:textColor="#6C6C74"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/switch_Name"
+                app:layout_constraintTop_toBottomOf="@+id/switch_Datum" />
+
+            <Switch
+                android:id="@+id/switch_Datum"
+                android:layout_width="200dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:fontFamily="sans-serif-medium"
+                android:text="Datum"
+                android:textColor="#6C6C74"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/switch_Name"
+                app:layout_constraintTop_toBottomOf="@+id/switch_Name" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

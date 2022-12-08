@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MakerCalc</string>
+
+
+    // kunden_item (Kunden Daten)
+    <string name="kundenName_TI">Name</string>
+    <string name="kundenAdresse_TI">Street</string>
+    <string name="place_TI">City</string>
+    <string name="plz_TI">Code</string>
+
+    <string name="login_Text">Accurate pricing prevents nasty surprises.</string>
+    <string name="Here_we_go">Here we go</string>
+    <string name="Cancel">Cancel</string>
+    <string name="sortby">Sort by</string>
+    <string name="menu">Menu</string>
+    <string name="footerTab">Footer</string>
+    <string name="nameTab">Name</string>
+    <string name="addressTab">Address</string>
+    <string name="editProfile">Edit profile</string>
+    <string name="nameInput">Enter your name here</string>
+    <string name="addressInput">Enter your address here</string>
+    <string name="footerInput">Enter your bank details here</string>
+    <string name="custumermanagement">Customer management</string>
+    <string name="CalculationEditor">Calculation Editor</string>
+    <string name="Settings">Settings</string>
+    <string name="Tutorial">Tutorial</string>
+    <string name="faq">FAQ</string>
+    <string name="Buy_premium">Buy Premium</string>
+    <string name="filter">Filter</string>
+    <string name="reg_Button">Registration</string>
+    <string name="log_Button">Login</string>
+    <string name="fromTemplate">From template</string>
+    <string name="create_new">Create_new</string>
+    <string name="themeText_TV">Choose a template</string>
+    <string name="or_Reg">or register here</string>
+    <string name="loginName">Email</string>
+    <string name="loginPassword">Password</string>
+    <string name="Password_forgotten">Password forgotten?</string>
+
+    <string name="title">Title</string>
+    <string name="unitPrice">Unit price</string>
+    <string name="totalPrice">Total price</string>
+    <string name="Regard">Regard</string>
+    <string name="Detail">Detail</string>
+    <string name="ProductionCostOf1Part">Production cost of 1 part</string>
+    <string name="ProductionCostOf2Part">Production cost of 2 part</string>
+    <string name="costOfModeling">Cost of modeling</string>
+    <string name="prototypeCost">Prototype Cost</string>
+    <string name="postProcessingCost">Post processing cost</string>
+    <string name="total">Total</string>
+    <string name="currency">$</string>
+
+    <string name="whatYouWant">What do you want to do?</string>
+    <string name="save">Save</string>
+    <string name="discard">Discard</string>
+    <string name="cancel">Cancel</string>
+
+
+    <string name="singleCalcName">Calc name her</string>
+    <string name="singleCalcText">Bitte geben Sie hier Ihre Calcbeschreibung</string>
+    <string name="difficultyFactor">Difficulty factor</string>
+    <string name="electricityPrice">Electricity price</string>
+    <string name="isTemplate">is Template</string>
+    <string name="modelingCost">Modeling cost</string>
+    <string name="postProcessingPrice">Post processing price</string>
+    <string name="prototype">Prototype</string>
+    <string name="produktQuantity">Quantity</string>
+    <string name="workExtraPrice">Work extra price</string>
+    <string name="workPriceHour">Price per hour</string>
+    <string name="workTime">Working time</string>
+
+
+    <string name="materialCosts">Material Price</string>
+    <string name="materialName">Material:</string>
+    <string name="materialPrice">Price: /kg /stk:</string>
+    <string name="materialQuantity">Quantity:</string>
+    <string name="materialWeight">Weight:</string>
+
+    <string name="deviceCosts">Device costs</string>
+    <string name="deviceName">Device:</string>
+    <string name="devicePower">Power:</string>
+    <string name="deviceTime">Time:</string>
+    <string name="deviceAmortizationPrice">Amortization price:</string>
+
+    <string name="themeSrtring1">Bauarbeiten</string>
+    <string name="themeSrtring11">Tapezieren\n Fliessen legen\n Renovieren</string>
+
+    <string name="themeSrtring2">Kunst</string>
+    <string name="themeSrtring22">Bild mahlen \nGrafikarbeiten \nBildhauerei</string>
+
+    <string name="themeSrtring3">Technik</string>
+    <string name="themeSrtring33">3D Druck Preis \nComputerreparatur \nGeräte Instalation
+        \nSoft Instalation \nTV / Internet</string>
+</resources>
