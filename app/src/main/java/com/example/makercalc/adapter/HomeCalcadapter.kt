@@ -1,8 +1,7 @@
 package com.example.makercalc.adapter
 
 
-
-
+import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +10,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 
 import androidx.recyclerview.widget.RecyclerView
@@ -29,15 +30,13 @@ class HomeCalcadapter(
     private val calcViewModel: MainViewModel,
 
 
-) : RecyclerView.Adapter<HomeCalcadapter.ItemViewHolder>() {
-
+    ) : RecyclerView.Adapter<HomeCalcadapter.ItemViewHolder>() {
 
 
     private var calcdataset: MutableList<SingleCalc> = mutableListOf()
 
 
-
-    fun submitCalcList(list: MutableList<SingleCalc>){
+    fun submitCalcList(list: MutableList<SingleCalc>) {
         calcdataset = list
         calcdataset.sortedBy { it.singleCalcName }
         notifyDataSetChanged()
@@ -46,7 +45,8 @@ class HomeCalcadapter(
     /**
      * der ViewHolder umfasst die View uns stellt einen Listeneintrag dar
      */
-    class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ItemViewHolder(itemView: View, val lifecycleOwner: LifecycleOwner) :
+        RecyclerView.ViewHolder(itemView) {
         // TODO findViewById holen   -----------------
 
         val themeImage: ImageView = itemView.findViewById(R.id.theme_iV)
@@ -72,7 +72,6 @@ class HomeCalcadapter(
         val total: TextView = itemView.findViewById(R.id.total_TV)
 
 
-
     }
 
     /**
@@ -80,14 +79,16 @@ class HomeCalcadapter(
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
 
+        val lifeCycleOwner = parent.context as LifecycleOwner
+
         // das itemLayout wird gebaut
         // TODO Schreibe hier deinen Code -------------------
 
         val adapterLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.calc_item,parent,false)
+            .inflate(R.layout.calc_item, parent, false)
 
         // und in einem ViewHolder zurückgegeben
-        return ItemViewHolder(adapterLayout)
+        return ItemViewHolder(adapterLayout, lifeCycleOwner)
 
 
     }
@@ -105,65 +106,140 @@ class HomeCalcadapter(
         return calcdataset.size
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
 
         val calcItem: SingleCalc = calcdataset[position]
-        var materialsCost:Double = 0.0
 
 
 
+        calcViewModel.getMatDevCostOfProd1(calcItem.singleCalcID)
+        calcViewModel.getMaterialCost(calcItem.singleCalcID)
+        calcViewModel.getDeviceCost(calcItem.singleCalcID)
 
+        var materialsCost: Double = 0.0
+        var devicesCost: Double = 0.0
         var isDetailViewOn: Boolean = false
+        var prototypeCost = 0.0
+        var totalCost = 0.0
 
-        var postProCost = calcItem.postProcessingPrice * calcItem.quantity
 
 
+        calcViewModel.materialsCost.observe(
+            holder.lifecycleOwner,
+            Observer {
+                materialsCost = it
+                //   holder.productionCostOf1Part.text = materialsCost.toString()
+            }
+        )
+
+
+
+
+        calcViewModel.devicesCost.observe(
+            holder.lifecycleOwner,
+            Observer {
+
+                var postProCost = calcItem.postProcessingPrice * calcItem.quantity
+
+                var prodCostOf1Part = (((it + materialsCost) * 3 * calcItem.difficultyFactor)
+                        + calcItem.modelingCost + calcItem.workExtraPrice +
+                        (calcItem.workPriceHour * calcItem.workTime))
+
+                var prodCostOf2Part = prodCostOf1Part - calcItem.modelingCost
+
+                if (calcItem.prototype == 1) {
+                    prototypeCost = prodCostOf2Part * 0.75
+                } else {
+                    prototypeCost = calcItem.isFavorite.toDouble()
+                }
+
+                totalCost = ((prodCostOf2Part * calcItem.quantity) + prototypeCost
+                        + postProCost + calcItem.modelingCost)
+
+
+                holder.productionCostOf1Part.text =
+                    "%.2f".format(prodCostOf1Part)
+                        .toString() + " " + holder.itemView.context.getString(R.string.currency)
+                holder.productionCostOf2Part.text =
+                    "%.2f".format(prodCostOf2Part)
+                        .toString() + " " + holder.itemView.context.getString(R.string.currency)
+                holder.prototypeCost.text =
+                    "%.2f".format(prototypeCost)
+                        .toString() + " " + holder.itemView.context.getString(R.string.currency)
+                holder.total.text =
+                    "%.2f".format(totalCost)
+                        .toString() + " " + holder.itemView.context.getString(R.string.currency)
+
+                holder.costOfModeling.text =
+                    "%.2f".format(calcItem.modelingCost)
+                        .toString() + " " + holder.itemView.context.getString(R.string.currency)
+                holder.postProcessingCost.text =
+                    "%.2f".format(postProCost)
+                        .toString() + " " + holder.itemView.context.getString(R.string.currency)
+
+            }
+        )
 
 
 
 
         holder.calcName.text = calcItem.singleCalcName
         holder.calcDescription.text = calcItem.singleCalcDescription
-        holder.calcDescriptionLong.text= calcItem.singleCalcDescription
-
-        holder.productionCostOf1Part.text= "${materialsCost}" +" " + holder.itemView.context.getString(R.string.currency)
-        holder.productionCostOf2Part.text= "" + " " + holder.itemView.context.getString(R.string.currency)
-        holder.costOfModeling.text= "${calcItem.modelingCost}" + " " + holder.itemView.context.getString(R.string.currency)
-        holder.postProcessingCost.text= "${postProCost}" + " " + holder.itemView.context.getString(R.string.currency)
-        holder.prototypeCost.text= "${calcItem.prototype}" + " " + holder.itemView.context.getString(R.string.currency)
-        holder.total.text= "${ calcItem.modelingCost + calcItem.postProcessingPrice }" + " " + holder.itemView.context.getString(R.string.currency)
+        holder.calcDescriptionLong.text = calcItem.singleCalcDescription
 
 
 
+        when (calcItem.themeID){
 
+            "3D Druck" -> {holder.themeImage.setImageResource(R.drawable.ddruck)}
+            "Bildhauerei" -> {holder.themeImage.setImageResource(R.drawable.hammer)}
+            "Bild mahlen" -> {holder.themeImage.setImageResource(R.drawable.illustrator)}
+
+        }
+
+        when (calcItem.isFavorite){
+            1 -> { holder.favoriteImage.setImageResource(R.drawable.favoritestarlila)}
+            0 -> { holder.favoriteImage.setImageResource(R.drawable.favoritestar)}
+
+        }
+
+
+        holder.themeImage
         holder.calcImage.load(calcItem.image)
 
-        Log.d ("HomecalCadapter", "${calcItem.singleCalcName} =  ${calcItem.isFavorite}")
-        holder.favoriteImage.
-        setImageResource(if (calcItem.isFavorite == 1)R.drawable.favoritestarlila
-                        else R.drawable.favoritestar)
+        /*
+
+        Log.d("HomecalCadapter", "${calcItem.singleCalcName} =  ${calcItem.isFavorite}")
+        holder.favoriteImage.setImageResource(
+            if (calcItem.isFavorite == 1) R.drawable.favoritestarlila
+            else R.drawable.favoritestar
+        )
 
 
+         */
 
 
         holder.btn_Edit.setOnClickListener {
 
             calcViewModel.getCalc(calcItem.singleCalcID)
             holder.itemView.findNavController()
-                .navigate(HomeFragmentDirections.actionHomeFragmentToConstructionkitFragment(
-                    calcItem.themeID,
+                .navigate(
+                    HomeFragmentDirections.actionHomeFragmentToConstructionkitFragment(
+                        calcItem.themeID,
 
-                ))
+                        )
+                )
 
 
-            }
+        }
 
         holder.btn_Copy.setOnClickListener {
 
             calcViewModel.copyCalc(calcItem)
         }
 
-        holder.btn_Send.setOnClickListener {  }
+        holder.btn_Send.setOnClickListener { }
 
 
         holder.btn_deleteCalc.setOnClickListener {
@@ -175,16 +251,15 @@ class HomeCalcadapter(
 
         holder.btn_favStar.setOnClickListener {
 
-            if (calcItem.isFavorite == 1){
+            if (calcItem.isFavorite == 1) {
                 holder.favoriteImage.setImageResource(R.drawable.favoritestar)
-                calcItem.isFavorite  = 0
+                calcItem.isFavorite = 0
                 calcViewModel.updateFavorite(calcItem.singleCalcID, calcItem.isFavorite)
 
 
-            }
-            else {
+            } else {
                 holder.favoriteImage.setImageResource(R.drawable.favoritestarlila)
-                calcItem.isFavorite  = 1
+                calcItem.isFavorite = 1
                 calcViewModel.updateFavorite(calcItem.singleCalcID, calcItem.isFavorite)
 
             }
@@ -195,23 +270,18 @@ class HomeCalcadapter(
         holder.calc_cardView.setOnClickListener {
 
 
-            if (isDetailViewOn == false){
+            if (isDetailViewOn == false) {
                 calcViewModel.getCalc(calcItem.singleCalcID)
                 holder.calcDetail.visibility = View.VISIBLE
                 isDetailViewOn = true
 
 
-
-
-            }
-            else {
+            } else {
                 holder.calcDetail.visibility = View.GONE
                 isDetailViewOn = false
             }
 
         }
-
-
 
 
     }

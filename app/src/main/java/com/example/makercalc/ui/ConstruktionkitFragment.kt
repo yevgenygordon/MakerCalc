@@ -50,7 +50,7 @@ class ConstructionkitFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val theme = requireArguments().getString("theme", "")
+        var theme = requireArguments().getString("theme", "Bild mahlen")
 
 
         viewModel.calc.observe(
@@ -73,6 +73,7 @@ class ConstructionkitFragment : Fragment() {
                 }
 
 
+
             }
         )
 
@@ -85,7 +86,7 @@ class ConstructionkitFragment : Fragment() {
                 singleCalcID = viewModel.calc.value!!.singleCalcID,
                 singleCalcName = binding.calcNameET.text.toString(),
                 singleCalcDescription = binding.calcTextTI.text.toString(),
-                themeID = viewModel.calc.value!!.themeID,
+                themeID = theme.toString(),
                 image = viewModel.calc.value!!.image,
                 isTemplate = 0,
                 isFavorite = 0,

@@ -17,8 +17,6 @@ import com.example.makercalc.databinding.FragmentHomeBinding
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    //   var personList: MutableList<Person> = mutableListOf(Person(1,"Alex","2222"))
-   // private lateinit var calcList:MutableList<SingleCalc>
 
 
     private val viewModel: MainViewModel by activityViewModels()
@@ -109,10 +107,16 @@ class HomeFragment : Fragment() {
 
                     viewModel.getUserData()
 
-                    if (viewModel.sortBy.value?.filterFavorite == true) viewModel.filterFavorite()
-                    if (viewModel.sortBy.value?.filterName == true) viewModel.sortByName()
+                    if (viewModel.sortBy.value?.filterFavorite == true) {
+                        viewModel.filterFavorite()
+                    }
+                    if (viewModel.sortBy.value?.filterName == true) {
+                        viewModel.sortByName()
+                    }
 
-                    else viewModel.getCalcs()
+                    else {
+                        viewModel.getCalcs()
+                    }
 
                     viewModel.image = ""
 

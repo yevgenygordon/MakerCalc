@@ -136,6 +136,25 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val isTemp: LiveData<Boolean>
         get() = _isTemp
 
+    // Calc enthält alle relevanten Daten aus dem Firestore Materials Dokuments
+    private val _materialsCost = MutableLiveData<Double>()
+    val materialsCost: LiveData<Double>
+        get() = _materialsCost
+
+    // Calc enthält alle relevanten Daten aus dem Firestore Devices Dokuments
+    private val _devicesCost = MutableLiveData<Double>()
+    val devicesCost: LiveData<Double>
+        get() = _devicesCost
+
+    // Calc enthält Summe prodCostOf1Part
+    private val _prodCostOf1Part = MutableLiveData<Double>()
+    val prodCostOf1Part: LiveData<Double>
+        get() = _prodCostOf1Part
+
+
+
+
+
 
     val delKunde = { kunde: Kunden ->
         Unit
@@ -420,7 +439,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
 
-    fun getMaterials (){
+    fun getMaterials() {
 
         db.collection("User").document(currentUser.value!!.uid)
             .collection("SingleCalc").document(_calc.value!!.singleCalcID)
@@ -440,7 +459,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     }
 
-    fun getDevices (){
+    fun getDevices() {
 
 
         db.collection("User").document(currentUser.value!!.uid)
@@ -563,13 +582,15 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 "materialQuantity",
                 editMaterial.materialQuantity,
             )
-            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!")
-            getMaterials()}
+            .addOnSuccessListener {
+                Log.d(TAG, "DocumentSnapshot successfully written!")
+                getMaterials()
+            }
             .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
 
     }
 
-    fun deleteMaterial(editMaterial: Materials){
+    fun deleteMaterial(editMaterial: Materials) {
 
         db.collection("User").document(currentUser.value!!.uid)
             .collection("SingleCalc").document(_calc.value!!.singleCalcID)
@@ -639,14 +660,15 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 "deviceAmortizationPrice",
                 editDevices.deviceAmortizationPrice,
             )
-            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!")
+            .addOnSuccessListener {
+                Log.d(TAG, "DocumentSnapshot successfully written!")
                 getDevices()
-                  }
+            }
             .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
 
     }
 
-    fun deleteDevice(editDevice: Devices){
+    fun deleteDevice(editDevice: Devices) {
 
         db.collection("User").document(currentUser.value!!.uid)
             .collection("SingleCalc").document(_calc.value!!.singleCalcID)
@@ -716,8 +738,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 updateSingleCalc.isTemplate,
                 "isFavorite",
                 updateSingleCalc.isFavorite,
-                "isFavorite",
-                updateSingleCalc.isFavorite,
+
 
                 )
             .addOnSuccessListener {
@@ -1000,6 +1021,76 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 (_calcs.value as MutableList<SingleCalc>).sortedBy { singleCalc: SingleCalc ->
                     singleCalc.singleCalcName
                 }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "Error getting documents: ", exception)
+            }
+
+    }
+
+
+    //----------------------Profit Rechnen-------------------------
+
+
+    fun getMatDevCostOfProd1(id: String) {
+        getMaterialCost(id)
+        getDeviceCost(id)
+        _prodCostOf1Part.value = _devicesCost.value?.plus(_materialsCost.value!!)
+
+    }
+
+
+    fun getMaterialCost(id: String) {
+        db.collection("User").document(currentUser.value!!.uid)
+            .collection("SingleCalc").document(id)
+            .collection("Materials")
+            .get()
+            .addOnSuccessListener { result ->
+                var materialsCost = 0.0
+                val outputMaterials = mutableListOf<Materials>()
+                for (document in result) {
+                    Log.d(TAG, "${document.id} => ${document.data}")
+                    outputMaterials.add(document.toObject(Materials::class.java))
+                }
+
+                for (i in 0..outputMaterials.size - 1) {
+                    var mCost = (outputMaterials[i].materialweight / 1000) *
+                            outputMaterials[i].materialQuantity.toDouble() *
+                            outputMaterials[i].materialPriceItem
+                    materialsCost += mCost
+
+                }
+                _materialsCost.value = materialsCost
+            }
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "Error getting documents: ", exception)
+            }
+
+    }
+
+    fun getDeviceCost(id: String) {
+        db.collection("User").document(currentUser.value!!.uid)
+            .collection("SingleCalc").document(id)
+            .collection("Devices")
+            .get()
+            .addOnSuccessListener { result ->
+                var devicesCost = 0.0
+                val outputDevices = mutableListOf<Devices>()
+                for (document in result) {
+                    Log.d(TAG, "${document.id} => ${document.data}")
+                    outputDevices.add(document.toObject(Devices::class.java))
+                }
+
+
+                for (i in 0..outputDevices.size - 1) {
+                    var dCost = ((outputDevices[i].deviceTime / 60) *
+                            outputDevices[i].deviceAmortizationPrice) +
+                            ((outputDevices[i].deviceTime / 60) * (outputDevices[i].devicePower / 1000) * 0.45)
+
+                    devicesCost += dCost
+
+                }
+                _devicesCost.value = devicesCost
             }
             .addOnFailureListener { exception ->
                 Log.d(TAG, "Error getting documents: ", exception)

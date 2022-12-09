@@ -85,19 +85,21 @@ class TopicDetailadapter(
 
         holder.themeName.setOnClickListener {
 
-            if (topicDetailItem == "3D Druck" ||
-                topicDetailItem == "Bildhauerei" ||
-                topicDetailItem == "Bild mahlen"
-                )
-            {
-                topicDetailViewModel.getTemplateCalc()
-                holder.itemView.findNavController()
-                    .navigate(TopicsFragmentDirections.actionTopicsFragmentToConstructionkitFragment(
+            var theme: String = ""
+           when(topicDetailItem){
+               "3D Druck" -> {theme = "3D Druck"}
+               "Bildhauerei" -> {theme = "Bildhauerei"}
+               "Bild mahlen" -> {theme = "Bild mahlen"}
+           }
 
-                        topicDetailItem
-                    ))
+            topicDetailViewModel.getTemplateCalc()
+            holder.itemView.findNavController()
+                .navigate(TopicsFragmentDirections.actionTopicsFragmentToConstructionkitFragment(
 
-            }
+                    theme
+                ))
+
+
             if (topicDetailItem == "Fliesen legen" ||
                 topicDetailItem == "Renovieren" ||
                 topicDetailItem == "Tapezieren" ||
